@@ -1,0 +1,4 @@
+.vagrant/
+*.vagrant*
+venv
+*venv*
