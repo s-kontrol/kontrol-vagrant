@@ -4,22 +4,28 @@
 
 # Define image and number of nodes for windows
 windows_image = "StefanScherer/windows_2019"
+
 # Node count
 windows_node_count = 1
+
 # VM specs
 windows_vm_memory = 2048
 windows_vm_cpus = 2
+
 # Vm hostname. It expects a string. It will be appended automatically to the node count later. example: node_01, node_02, etc.
 # Only accepts characters, numbers and dashes. No spaces or special characters or underscores.
 windows_vm_hostname = "windows-node"
 
 # Define image and number of nodes for linux
 linux_image = "ubuntu/focal64"
+
 # Node count
 linux_node_count = 1
+
 # VM specs
 linux_vm_memory = 2048
 linux_vm_cpus = 2
+
 # Vm hostname. It expects a string. It will be appended automatically to the node count later. example: node_01, node_02, etc.
 # Only accepts characters, numbers and dashes. No spaces or special characters or underscores.
 linux_vm_hostname = "linux-node"
@@ -66,7 +72,7 @@ Vagrant.configure("2") do |config|
       node.vm.box = linux_image
       node.vm.hostname = "#{linux_vm_hostname}-#{i.to_s.rjust(2, "0")}"
       node.vm.network "#{network_type}", ip: "#{default_ip_address}.#{linux_last_octet + i}", bridge: $default_network_interface
-      #node.vm.provision "shell", path: "provision_scripts/sshsetup.sh"
+      node.vm.provision "shell", path: "provision_scripts/initial_setup.sh"
       node.vm.provider "virtualbox" do |vb|
         vb.memory = linux_vm_memory
         vb.cpus = linux_vm_cpus
