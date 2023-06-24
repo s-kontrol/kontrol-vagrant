@@ -1,4 +1,6 @@
 ## What is this repository?
+The objective of this repository is to deploy a X number of nodes of both Windows / Linux VMs for development use.
+
 I have created this repository to the best of my abilities at the time, aiming to provide a helpful resource for others on their Vagrant learning journey. However, please note that it may not encompass the most advanced or comprehensive techniques. It is intended as a sincere effort to assist and support others in their exploration of Vagrant.
 
 This does **NOT** meet any of the requirements of a production server in terms of configurations, security and or reliability. *Do not use for production.* *Do not use on a network you do not own.*
