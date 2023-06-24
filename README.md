@@ -1,5 +1,5 @@
 ## What is this repository?
-The objective of this repository is to deploy a X number of nodes of both Windows / Linux VMs for development use.
+The objective of this repository is to deploy a X number of Local Virtual Machines(nodes) of both Windows / Linux VMs for development use, using Vagrant and Virtualbox.
 
 I have created this repository to the best of my abilities at the time, aiming to provide a helpful resource for others on their Vagrant learning journey. However, please note that it may not encompass the most advanced or comprehensive techniques. It is intended as a sincere effort to assist and support others in their exploration of Vagrant.
 
