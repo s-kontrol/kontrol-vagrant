@@ -1,5 +1,8 @@
 ## What is this repository?
-This repository is intended to provide an easy testing environment in both Windows and Linux.
+This repository is intended to provide an easy testing environment in both Windows and Linux in a quick way.
+This does **NOT** meet any of the requirements of a production server in terms of configurations, security and or reliability. 
+*Do not use for production.*
+*Do not use on a network you do not own.*
 
 ---
 #### Requirements
