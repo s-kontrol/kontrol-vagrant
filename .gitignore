@@ -2,3 +2,5 @@
 *.vagrant*
 venv
 *venv*
+*.log
+*.log.*
