@@ -43,6 +43,6 @@ By default, we create the following:
 - The provision scripts are configured to enable quick `WinRM` / `ssh` access(optional) to your machines and open the necessary ports.
 ---
 ### SSH Key for linux VMs
-It is recommended that you check `provision_scripts/initial_setup.sh` and follow the instructions there.
-There's another way to connect which is to do `vagrant ssh boxname`
-The key that vagrant automatically generates also should be under on the host: `.vagrant/boxname/private_key`
+- It is recommended that you check `provision_scripts/initial_setup.sh` and follow the instructions there. 
+- There's another way to connect which is to do `vagrant ssh boxname`.
+- The key that vagrant automatically generates also should be under on the host: `.vagrant/boxname/private_key`.
