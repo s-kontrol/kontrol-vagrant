@@ -1,5 +1,6 @@
+
 #############################################################################################################
-# VM CONFIGURATION
+# VM CONFIGURATION - WINDOWS
 #############################################################################################################
 
 # Define image and number of nodes for windows
@@ -15,6 +16,10 @@ windows_vm_cpus = 2
 # Vm hostname. It expects a string. It will be appended automatically to the node count later. example: node_01, node_02, etc.
 # Only accepts characters, numbers and dashes. No spaces or special characters or underscores.
 windows_vm_hostname = "windows-node"
+
+#############################################################################################################
+# VM CONFIGURATION - LINUX
+#############################################################################################################
 
 # Define image and number of nodes for linux
 linux_image = "ubuntu/focal64"
