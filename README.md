@@ -9,6 +9,7 @@ This does **NOT** meet any of the requirements of a production server in terms o
 #### Requirements
 - `Vagrant 2.2.16` (https://developer.hashicorp.com/vagrant/downloads)
 - `VirtualBox 6.1.44` (https://www.virtualbox.org/wiki/Download_Old_Builds_6_1)
+- Any linux distribution that supports Vagrant & Virtualbox.
 
 Note: *Vagrant versions above `2.2.16` havent been tested. Feel free to try them though!*
 
