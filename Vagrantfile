@@ -13,7 +13,7 @@ windows_node_count = 1
 windows_vm_memory = 2048
 windows_vm_cpus = 2
 
-# Vm hostname. It expects a string. It will be appended automatically to the node count later. example: node_01, node_02, etc.
+# Vm hostname. It expects a string. It will be appended automatically to the node count later. example: node-01, node-02, etc.
 # Only accepts characters, numbers and dashes. No spaces or special characters or underscores.
 windows_vm_hostname = "windows-node"
 
@@ -31,7 +31,7 @@ linux_node_count = 1
 linux_vm_memory = 2048
 linux_vm_cpus = 2
 
-# Vm hostname. It expects a string. It will be appended automatically to the node count later. example: node_01, node_02, etc.
+# Vm hostname. It expects a string. It will be appended automatically to the node count later. example: node-01, node-02, etc.
 # Only accepts characters, numbers and dashes. No spaces or special characters or underscores.
 linux_vm_hostname = "linux-node"
 
