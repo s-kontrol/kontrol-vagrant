@@ -17,6 +17,8 @@ Note: *Vagrant versions above `2.2.16` havent been tested. Feel free to try them
 - `vagrant up` to start the vms.
 - `vagrant destroy` to destroy the vms.
 - `vagrant status` to see the vms.
+- You can also pass a box name to any of those commands to target a node.
+  `vagrant up windows-node`
 ---
 ### Vagrantfile Settings
 You can review the Vagrantfile which contains information on how to do so.
@@ -29,7 +31,8 @@ By default, we create the following:
 - If you didn't change anything, by default it would use a bridge connection so it'll have a local ip on the same range as your host.
 - The last `octet` will be `90+nodenumber` for `windows`, `180+nodenumber` for `windows.`
 - **Example:** Your `host` is connected to a `192.168.0.0/24` network. 
-  Your VMs IPs would be `192.168.0.90+nodenumber`(windows) - `192.168.0.180+nodenumber`(linux)
+  Your VMs IPs would be `192.168.0.90+nodenumber`(windows) - `192.168.0.180+nodenumber`(linux). 
+  **Node number starts at 0, *of course.***
 - We recommend changing the last `octet` for an easy configuration. 
   *Advanced networking setup is out of scope of this repository.*
 ---
