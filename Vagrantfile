@@ -25,9 +25,6 @@ windows_vm_hostname = "windows-node"
 # ie "bridge0". MUST BE A BRIDGE.
 default_network_interface=`ip route | awk '/^default/ {printf "%s", $5; exit 0}'`
 
-# get the ip address of the default network interface. It expects a string with the ip address such as 192.168.0 or 10.0.0 or 172.16.0, etc.
-default_ip_address=`ip route | grep "$default_network_interface" | head -n 1 | awk '{printf "%s", $3}' | sed 's/\.[^\.]*$//'`
-
 #############################################################################################################
 # VAGRANT CONFIGURATION STARTS HERE. CHANGE AT YOUR OWN RISK.
 #############################################################################################################
