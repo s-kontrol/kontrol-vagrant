@@ -40,3 +40,18 @@
         backup: true
         mode: "0644"
       become: true
+
+    - name: Create A records in cloudflare
+      community.general.cloudflare_dns:
+        zone: kontrolv.cc
+        record: '{{ (item | split(" "))[-1] }}'
+        type: A
+        value: '{{ (item | split(" "))[0] }}'
+        api_token: "{{ lookup('ansible.builtin.env', 'CF_TOKEN') }}"
+        solo: true
+      register: record
+      with_items:
+        - "{{ output.stdout_lines }}"
+      loop_control:
+        label: "Creating record for {{ item }}"
+      when: cloudflare | default('false') | bool # -e cloudflare=True

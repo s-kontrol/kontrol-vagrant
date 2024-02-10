@@ -43,7 +43,7 @@ Vagrant.configure("2") do |config|
       node.vm.provider "libvirt" do |libvirt|
         libvirt.memory = windows_vm_memory
         libvirt.cpus = windows_vm_cpus
-        libvirt.storage :file, :size => '10G', :device => 'sdb'
+        libvirt.storage :file, :size => '30G', :device => 'sdb'
       end
       node.vm.provision "shell", path: "provision_scripts/winrmsetup.ps1"
       node.vm.provision "shell", path: "provision_scripts/initial-setup.ps1"
