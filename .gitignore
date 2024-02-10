@@ -1,6 +1,4 @@
 .vagrant/
-*.vagrant*
 venv
-*venv*
 *.log
-*.log.*
+hosts
