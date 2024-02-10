@@ -7,7 +7,7 @@
 windows_image = "jborean93/WindowsServer2019"
 
 # Node count
-windows_node_count = 4
+windows_node_count = 2
 
 # VM specs
 windows_vm_memory = 4096
@@ -37,17 +37,18 @@ Vagrant.configure("2") do |config|
     config.vm.define "#{windows_vm_hostname}-#{i.to_s.rjust(2, "0")}" do |node|
       node.vm.box = windows_image
       node.vm.hostname = "#{windows_vm_hostname}-#{i.to_s.rjust(2, "0")}"
-      node.vm.provision "shell", path: "provision_scripts/winrmsetup.ps1"
       node.vm.network :public_network,
-        :dev => "#{default_network_interface}",
-        :mode => "bridge",
-        :type => "bridge"
+      :dev => "#{default_network_interface}",
+      :mode => "bridge",
+      :type => "bridge"
       # Adjust the libvirt provider configuration for memory and CPUs
       node.vm.provider "libvirt" do |libvirt|
         libvirt.memory = windows_vm_memory
         libvirt.cpus = windows_vm_cpus
         libvirt.storage :file, :size => '10G', :device => 'sdb'
       end
+      node.vm.provision "shell", path: "provision_scripts/winrmsetup.ps1"
+      node.vm.provision "shell", path: "provision_scripts/initial-setup.ps1"
     end
   end
 end
