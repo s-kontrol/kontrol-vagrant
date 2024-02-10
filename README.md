@@ -5,6 +5,7 @@ The purpose of this repository is to deploy a variable number of local Windows V
 #### Requirements
 - `Vagrant 2.4.3` (https://www.vagrantup.com/downloads)
 - `libvirt` as the Vagrant provider (ensure it's installed on your system).
+- `A bridged network interface`
 
 ---
 ### How to use:

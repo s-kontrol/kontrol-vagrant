@@ -21,7 +21,8 @@ windows_vm_hostname = "windows-node"
 # NETWORK CONFIGURATION
 #############################################################################################################
 
-# attach to the default network interface. Can be changed to a specific interface. it expects a string with the interface name. ie "eth0".
+# attach to the default network interface. Can be changed to a specific interface. it expects a string with the interface. MUST BE A BRIDGE. 
+# ie "bridge0". MUST BE A BRIDGE.
 default_network_interface=`ip route | awk '/^default/ {printf "%s", $5; exit 0}'`
 
 # get the ip address of the default network interface. It expects a string with the ip address such as 192.168.0 or 10.0.0 or 172.16.0, etc.
