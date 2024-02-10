@@ -1,0 +1,42 @@
+---
+- name: Setup Hosts Play
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Gather hosts facts
+      ansible.builtin.shell:
+        cmd: |
+            set -o pipefail
+            for i in $(vagrant status | grep "running" | grep "windows" | awk '{printf "%s ", $1}' | sed 's/ $//');
+            do
+                IP=$(vagrant winrm $i -c "(Get-NetIPAddress -AddressFamily IPv4).IPAddress" | grep "192.168.0" | tr -d '[:space:]')
+                i=$(echo "$i" | tr -d '[:space:]')
+                echo "$IP $i"
+            done
+        executable: /bin/bash
+      register: output
+      changed_when: false
+      failed_when: output.rc != 0
+
+    - name: Register current hosts file
+      ansible.builtin.copy:
+        dest: ./hosts.new
+        content: |
+          {{ lookup('ansible.builtin.file', '/etc/hosts') }}
+        mode: "777"
+
+    - name: Append new hosts information
+      ansible.builtin.lineinfile:
+        path: ./hosts.new
+        regexp: '{{ (item | split(" "))[-1] }}'
+        line: "{{ item }}"
+      with_items:
+        - "{{ output.stdout_lines }}"
+
+    - name: Copy new file to our localhost
+      ansible.builtin.copy:
+        src: ./hosts.new
+        dest: /etc/hosts
+        backup: true
+        mode: "0644"
+      become: true

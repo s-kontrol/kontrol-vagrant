@@ -16,6 +16,6 @@ jobs:
       run: |
         sudo apt-get install fuse libfuse2
         cd $GITHUB_WORKSPACE
-        wget https://releases.hashicorp.com/vagrant/2.2.16/vagrant_2.2.16_linux_amd64.zip
-        unzip vagrant_2.2.16_linux_amd64.zip
+        wget https://releases.hashicorp.com/vagrant/2.3.4/vagrant_2.3.4_linux_amd64.zip
+        unzip vagrant_2.3.4_linux_amd64.zip
         ./vagrant validate --ignore-provider
