@@ -7,7 +7,7 @@
 windows_image = "jborean93/WindowsServer2019"
 
 # Node count
-windows_node_count = 2
+windows_node_count = 4
 
 # VM specs
 windows_vm_memory = 4096
