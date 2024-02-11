@@ -4,16 +4,13 @@ all: fedora vagrant-plugin
 
 fedora:
 	sudo dnf install vagrant -y
-	sudo dnf install virt-install
-	sudo dnf install libvirt-daemon-config-network libvirt-daemon-kvm qemu-kvm virt-manager virt-viewer
-	sudo dnf install guestfs-tools python3-libguestfs virt-top
+	sudo dnf install virt-install -y
+	sudo dnf install libvirt-daemon-config-network libvirt-daemon-kvm qemu-kvm virt-manager virt-viewer -y
+	sudo dnf install guestfs-tools python3-libguestfs virt-top -y
 
 ubuntu:
 	sudo apt-get update
-	sudo apt-get install vagrant -y
-	sudo apt-get install virtinst
-	sudo apt-get install libvirt-daemon-system libvirt-clients qemu-kvm virt-manager virt-viewer
-	sudo apt-get install libguestfs-tools python3-libguestfs virt-top
+	sudo apt-get install vagrant virtinst libvirt-daemon-system libvirt-clients qemu-kvm virt-manager virt-viewer libguestfs-tools virt-top -y
 
 vagrant-plugin:
 	vagrant plugin install winrm
