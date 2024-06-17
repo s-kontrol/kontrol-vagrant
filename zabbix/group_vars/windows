@@ -1,0 +1,7 @@
+---
+ansible_user: vagrant
+ansible_password: vagrant
+ansible_winrm_server_cert_validation: ignore
+ansible_connection: winrm
+zabbix_agent_url: https://cdn.zabbix.com/zabbix/binaries/stable/6.4/6.4.12/zabbix_agent-6.4.12-windows-amd64-openssl.zip
+zabbix_backend: zabbix-server-00.kontrolv.cc

@@ -7,11 +7,11 @@
 windows_image = "jborean93/WindowsServer2019"
 
 # Node count
-windows_node_count = 4
+windows_node_count = 5
 
 # VM specs
 windows_vm_memory = 4096
-windows_vm_cpus = 4
+windows_vm_cpus = 3
 
 # Vm hostname. It expects a string. It will be appended automatically to the node count later. example: node-01, node-02, etc.
 # Only accepts characters, numbers and dashes. No spaces or special characters or underscores.
@@ -23,8 +23,8 @@ windows_vm_hostname = "windows-node"
 
 # attach to the default network interface. Can be changed to a specific interface. it expects a string with the interface. MUST BE A BRIDGE. 
 # ie "bridge0". MUST BE A BRIDGE.
-default_network_interface=`ip route | awk '/^default/ {printf "%s", $5; exit 0}'`
-
+#default_network_interface=`ip route | awk '/^default/ {printf "%s", $5; exit 0}'`
+default_network_interface='bridge0'
 #############################################################################################################
 # VAGRANT CONFIGURATION STARTS HERE. CHANGE AT YOUR OWN RISK.
 #############################################################################################################
@@ -45,7 +45,7 @@ Vagrant.configure("2") do |config|
         libvirt.cpus = windows_vm_cpus
         libvirt.storage :file, :size => '30G', :device => 'sdb'
       end
-      node.vm.provision "shell", path: "provision_scripts/winrmsetup.ps1"
+      #node.vm.provision "shell", path: "provision_scripts/winrmsetup.ps1"
       node.vm.provision "shell", path: "provision_scripts/initial-setup.ps1"
     end
   end

@@ -1,0 +1,23 @@
+---
+- name: Create folder to Install Zabbix Agent
+  ansible.windows.win_file:
+    state: directory
+    path: C:\zabbix\
+
+- name: Download Zabbix Agent
+  ansible.windows.win_get_url:
+    url: "{{ zabbix_agent_url }}"
+    dest: C:\zabbix\zabbix_agent.zip
+
+- name: Unzip Zabbix Agent
+  community.windows.win_unzip:
+    src: C:\zabbix\zabbix_agent.zip
+    dest: C:\zabbix\
+
+- name: Copy Zabbix Config
+  ansible.windows.win_template:
+    src: ./files/zabbix_agentd.conf.j2
+    dest: C:\zabbix\zabbix_agentd.conf
+  notify:
+    - Uninstall Zabbix Agent
+    - Install Zabbix Agent

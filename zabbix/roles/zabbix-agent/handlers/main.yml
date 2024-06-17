@@ -1,0 +1,14 @@
+---
+- name: Uninstall Zabbix Agent
+  ansible.windows.win_shell: |
+    .\zabbix_agentd.exe -c 'C:\zabbix\zabbix_agentd.conf' -d
+  args:
+    chdir: C:\zabbix\bin\
+    executable: powershell
+
+- name: Install Zabbix Agent
+  ansible.windows.win_shell: |
+    .\zabbix_agentd.exe -c 'C:\zabbix\zabbix_agentd.conf' -i
+  args:
+    chdir: C:\zabbix\bin\
+    executable: powershell

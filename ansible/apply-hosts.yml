@@ -3,13 +3,23 @@
   hosts: localhost
   gather_facts: false
   tasks:
+
+    - name: Set facts for the run
+      ansible.builtin.set_fact:
+        vm_name: windows
+        vm_network: '192.168.1.'
+
+    - name: Set facts for the command
+      ansible.builtin.set_fact:
+        vm_command: vagrant winrm $i -c "(Get-NetIPAddress -AddressFamily IPv4).IPAddress" | grep "{{ vm_network }}" | head -n 1 | tr -d '[:space:]'
+
     - name: Gather hosts facts
       ansible.builtin.shell:
         cmd: |
             set -o pipefail
-            for i in $(vagrant status | grep "running" | grep "windows" | awk '{printf "%s ", $1}' | sed 's/ $//');
+            for i in $(vagrant status | grep "running" | grep "{{ vm_name }}" | awk '{printf "%s ", $1}' | sed 's/ $//');
             do
-                IP=$(vagrant winrm $i -c "(Get-NetIPAddress -AddressFamily IPv4).IPAddress" | grep "192.168.0" | tr -d '[:space:]')
+                IP=$({{ vm_command }})
                 i=$(echo "$i" | tr -d '[:space:]')
                 echo "$IP $i"
             done
@@ -43,7 +53,7 @@
 
     - name: Create A records in cloudflare
       community.general.cloudflare_dns:
-        zone: kontrolv.cc
+        zone: "{{ lookup('ansible.builtin.env', 'CF_ZONE') }}"
         record: '{{ (item | split(" "))[-1] }}'
         type: A
         value: '{{ (item | split(" "))[0] }}'

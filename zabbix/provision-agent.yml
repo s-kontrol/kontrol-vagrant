@@ -1,0 +1,5 @@
+---
+- name: Ping it
+  hosts: windows
+  roles:
+    - zabbix-agent
