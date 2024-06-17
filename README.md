@@ -54,5 +54,3 @@ The provision scripts enable quick `WinRM` access to your machines and open the 
 ---
 ### SSH Key for Windows VMs
 Check `provision_scripts/winrmsetup.ps1`. This will enable WinRM on the hosts.
-
-
