@@ -11,7 +11,7 @@ windows_node_count = 5
 
 # VM specs
 windows_vm_memory = 4096
-windows_vm_cpus = 3
+windows_vm_cpus = 4
 
 # Vm hostname. It expects a string. It will be appended automatically to the node count later. example: node-01, node-02, etc.
 # Only accepts characters, numbers and dashes. No spaces or special characters or underscores.
