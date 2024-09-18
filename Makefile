@@ -9,11 +9,8 @@ fedora:
 	sudo dnf install guestfs-tools python3-libguestfs virt-top -y
 
 ubuntu:
-	sudo apt-get update -y
-	sudo apt-get install vagrant -y
-	sudo apt-get install virtinst -y
-	sudo apt-get install libvirt-daemon-system libvirt-clients qemu-kvm virt-manager virt-viewer -y
-	sudo apt-get install libguestfs-tools python3-libguestfs virt-top -y
+	sudo apt-get update
+	sudo apt-get install vagrant virtinst libvirt-daemon-system libvirt-clients qemu-kvm virt-manager virt-viewer libguestfs-tools virt-top -y
 
 vagrant-plugin:
 	vagrant plugin install winrm

@@ -1,0 +1,10 @@
+---
+- hosts: all
+  ansible.builtin.win_file:
+    file: "{{ item }}"
+    state: absent
+  when: format | default('false') | bool
+  with_items:
+    - G:\\Accela
+    - G:\\downloads
+

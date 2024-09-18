@@ -53,7 +53,7 @@
 
     - name: Create A records in cloudflare
       community.general.cloudflare_dns:
-        zone: kontrolv.cc
+        zone: "{{ lookup('ansible.builtin.env', 'CF_ZONE') }}"
         record: '{{ (item | split(" "))[-1] }}'
         type: A
         value: '{{ (item | split(" "))[0] }}'

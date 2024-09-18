@@ -1,0 +1,6 @@
+---
+windows:
+  hosts:
+    windows-node-00:
+    windows-node-01:
+    windows-node-02:
