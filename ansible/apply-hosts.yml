@@ -27,7 +27,7 @@
       register: output
       changed_when: false
       failed_when: output.rc != 0
-
+ 
     - name: Register current hosts file
       ansible.builtin.copy:
         dest: ./hosts.new
