@@ -16,3 +16,4 @@ vagrant-plugin:
 	vagrant plugin install winrm
 	vagrant plugin install winrm-fs
 	vagrant plugin install winrm-elevated
+	vagrant plugin install vagrant-windows-domain
