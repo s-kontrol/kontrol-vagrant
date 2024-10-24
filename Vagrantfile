@@ -11,7 +11,7 @@ windows_node_count = 5
 
 # VM specs
 windows_vm_memory = 4096
-windows_vm_cpus = 4
+windows_vm_cpus = 3
 
 # Vm hostname. It expects a string. It will be appended automatically to the node count later. example: node-01, node-02, etc.
 # Only accepts characters, numbers and dashes. No spaces or special characters or underscores.
@@ -46,7 +46,16 @@ Vagrant.configure("2") do |config|
         libvirt.storage :file, :size => '30G', :device => 'sdb'
       end
       #node.vm.provision "shell", path: "provision_scripts/winrmsetup.ps1"
-      node.vm.provision "shell", path: "provision_scripts/initial-setup.ps1"
+      #node.vm.provision "shell", path: "provision_scripts/initial-setup.ps1"
+      node.vm.provision :windows_domain do |domain|
+        domain.domain = "local.kontrolv.cc"
+        domain.username = 'vagrant'
+        domain.password = "vagrant"
+        domain.primary_dns = "192.168.1.224"
+        domain.secondary_dns = "8.8.8.8"
+        # domain.ou_path = "OU=testOU,DC=domain,DC=Domain,DC=com"
+        domain.unsecure = false
+      end
     end
   end
 end
